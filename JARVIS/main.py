@@ -9,6 +9,8 @@ import os
 import smtplib
 import pywhatkit
 import psutil
+import PyPDF2
+import gettext
 
 
 engine = pyttsx3.init('sapi5')
@@ -56,6 +58,17 @@ def sendEmail(content,to):
     server.sendmail('200303105095@paruluniversity.ac.in',to,content)
     server.close()
 
+def read_pdf():
+    book = open("D:\V. K. Mehta, Rohit Mehta - Principles of Electronics-S. Chand & Co Ltd (2008).pdf","rb")
+    pdfreader = PyPDF2.PdfFileReader(book)
+    pages = pdfreader.numPages
+    speak(f"Total no of pages in this book is {pages}")
+    speak("sir the content in the pdf is ")
+    text = book.read()
+    speak(text)
+
+
+
 def sendWhatsapp(message,contact):
     if 'vivek' in contact:
        pywhatkit.sendwhatmsg("+917984564991","Hello Bro",6,46)
@@ -74,6 +87,8 @@ def TasksExecution():
             speak("According to wikipedia")
             print(results)
             speak(results)
+        elif'read pdf'in query:
+            read_pdf()
         elif 'open youtube' in query:
             speak("Starting Youtube..")
             webbrowser.open("https://www.youtube.com/")
@@ -123,6 +138,11 @@ def TasksExecution():
             except Exception as e:
                 print(e)
                 speak("Unable to send whatsapp right now!")
+        elif'search'in query:
+            speak("Yes sir tell me what to search?")
+            search = takeCommand()
+            result = webbrowser.open(f"https://www.google.com/search?q={search}")
+            speak(result)
         elif 'open whatsapp' in query:
             speak("Opening Whatsapp Web...")
             webbrowser.open("https://web.whatsapp.com/")

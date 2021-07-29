@@ -1,4 +1,4 @@
-# file_object = open("main.py","r")
+# file_object = open("D:\myfile2.txt","r")
 # print("File object is closed:",file_object.closed)
 # print("File name:",file_object.name)
 # print("Access mode of file:",file_object.mode)
@@ -15,17 +15,17 @@
 #
 
 #Reading and Writing the the file
-"""file = open("main.py","r+")
-print("File object is closed:",file.closed)
-print("File name is:",file.name)
-print("File access mode is:",file.mode)
-file.write("Hello World ! I am reading and writing this file.")
-str = file.read()
-print(str)
-file.close()"""
+# file = open("D:\myfile2.txt","r+")
+# print("File object is closed:",file.closed)
+# print("File name is:",file.name)
+# print("File access mode is:",file.mode)
+# file.write("Hello World ! I am reading and writing this file.")
+# str = file.read()
+# print(str)
+# file.close()
 
 #Appending the file
-# file = open("main.py","a")
+# file = open("D:\myfile2.txt","a")
 # print("File object is closed:",file.closed)
 # print("File name is:",file.name)
 # print("File access mode is:",file.mode)
